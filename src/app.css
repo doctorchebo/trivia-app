@@ -1,0 +1,105 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,700;1,300;1,400;1,500&display=swap");
+
+body {
+  background-color: #f5f7fb;
+  font-family: "Roboto", sans-serif;
+}
+
+.app-container {
+  margin-left: 20%;
+  margin-right: 20%;
+  justify-content: center;
+  justify-items: center;
+  align-items: center;
+  align-content: center;
+}
+
+.intro {
+  display: flex;
+  flex-direction: column;
+  height: 600px;
+  justify-content: center;
+  justify-items: center;
+  align-items: center;
+}
+
+.questions-container {
+  width: 800px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.question {
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.answers {
+  display: flex;
+  font-size: 11px;
+  gap: 13px;
+}
+
+.answer-option {
+  width: fit-content;
+  height: fit-content;
+  font-size: 15px;
+  border-radius: 8px;
+  background-color: white;
+  border: 1px solid #293264;
+  text-align: center;
+  padding: 3px;
+  cursor: pointer;
+}
+
+.answer-option .option-selected {
+  background-color: #293264;
+}
+
+.checkAnswers {
+  font-family: "Roboto", sans-serif;
+  color: white;
+  width: 120px;
+  height: 35px;
+  border-radius: 10px;
+  background-color: #4d5b9e;
+  border: none;
+  align-self: center;
+}
+
+.checkAnswers:hover {
+  cursor: pointer;
+}
+
+.startButton {
+  height: 52px;
+  width: 193px;
+  background-color: #4d5b9e;
+  font-family: "Roboto", sans-serif;
+  color: white;
+  font-size: 16px;
+  border-radius: 15px;
+  cursor: pointer;
+  border: none;
+}
+
+.gameResults {
+  font-family: "Roboto", sans-serif;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  align-self: center;
+}
+
+.playAgainButton {
+  font-family: "Roboto", sans-serif;
+  height: 30px;
+  width: 105px;
+  color: #f5f7fb;
+  border-radius: 10px;
+  background-color: #4d5b9e;
+  border: none;
+  cursor: pointer;
+}

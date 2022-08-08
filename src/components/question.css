@@ -1,0 +1,31 @@
+.container {
+  padding: 0.5rem;
+  border: 1px solid rgba(0, 0, 0, 0.5);
+  margin: 0.5rem;
+  border-radius: 0.3rem;
+}
+.answer-options {
+  display: flex;
+}
+
+.answer-option {
+  padding: 2rem;
+  margin: 1rem;
+}
+
+.answer-option-selected {
+  background-color: rgb(163, 106, 216);
+}
+
+.answer-option-correct {
+  background-color: rgb(50, 124, 50);
+}
+
+.answer-option-incorrect {
+  background-color: rgb(160, 42, 58);
+}
+
+.question-prompt {
+    font-size: 1.5rem;
+    font-weight: 400;
+}

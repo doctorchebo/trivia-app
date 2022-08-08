@@ -1,44 +1,55 @@
 import React from "react";
-
-export default function Question(props) {
-  const endGame = props.endGame
-  
-  const options = props.data.options.map((option) => {
-    
-    const isSelected = props.data.selectedOption == props.data.options.indexOf(option) && props.data.isSelected
-    const isCorrectAnswer = props.data.answer == props.data.options[props.data.options.indexOf(option)];
-    const correctAnswer = props.data.answer
-    const selectedAnswer = props.data.options[props.data.selectedOption]
-    const isSelectedAnswer = props.data.options.indexOf(option) == props.data.selectedOption
+import "./question.css";
+const Question = ({
+  key,
+  id,
+  options,
+  prompt,
+  handleSelection,
+  selected,
+  selectedOption,
+  answer,
+  endGame,
+}) => {
+  const answerOptions = options.map((option, index) => {
+    const isSelected = selectedOption === options.indexOf(option) && selected;
+    const isCorrectAnswer = answer === options[options.indexOf(option)];
+    const correctAnswer = answer;
+    const selectedAnswer = options[selectedOption];
+    const isSelectedAnswer = options.indexOf(option) === selectedOption;
 
     const style = () => {
       if (endGame) {
-        return { backgroundColor: isCorrectAnswer ? "#94D7A2" : (isSelectedAnswer && selectedAnswer !== correctAnswer ? "#F8BCBC" : "")}
+        return {
+          backgroundColor: isCorrectAnswer
+            ? "#94D7A2"
+            : isSelectedAnswer && selectedAnswer !== correctAnswer
+            ? "#F8BCBC"
+            : "",
+        };
       } else {
-        return { backgroundColor: isSelected ? "#D6DBF5" : "" }
+        return { backgroundColor: isSelected ? "#D6DBF5" : "" };
       }
-    }
+    };
 
     return (
-      <h3
+      <button
+        index={index}
+        id={id}
         className="answer-option"
-        key = {props.data.options.indexOf(option)}
-        style={style()}
-        onClick={() =>
-          props.handleSelection(
-            props.data.id,
-            props.data.options.indexOf(option)
-          )
-        }
+        style={(style(), { padding: "0.5rem" })}
+        onClick={() => handleSelection(id, index)}
       >
         {option}
-      </h3>
+      </button>
     );
   });
   return (
-    <div>
-      <h2 className="question">{props.data.prompt}</h2>
-      <div className="answers">{options}</div>
+    <div className="container">
+      <div className="question-prompt">{prompt}</div>
+      <div className="answer-options">{answerOptions}</div>
     </div>
   );
-}
+};
+
+export default Question;
