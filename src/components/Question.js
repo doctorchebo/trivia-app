@@ -34,10 +34,10 @@ const Question = ({
 
     return (
       <button
-        index={index}
+        key={index}
         id={id}
         className="answer-option"
-        style={(style(), { padding: "0.5rem" })}
+        style={style()}
         onClick={() => handleSelection(id, index)}
       >
         {option}
@@ -45,7 +45,7 @@ const Question = ({
     );
   });
   return (
-    <div className="container">
+    <div className="container" key={key}>
       <div className="question-prompt">{prompt}</div>
       <div className="answer-options">{answerOptions}</div>
     </div>

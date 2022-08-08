@@ -4,10 +4,10 @@ const QuestionsList = ({ questions, handleSelection, endGame }) => {
 
   return (
     <>
-      {questions.map((q) => {
+      {questions.map((q, index) => {
         return (
           <Question
-            key={q.id}
+            key={index}
             id={q.id}
             prompt={q.prompt}
             answer={q.answer}

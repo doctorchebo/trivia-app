@@ -16,7 +16,15 @@ export default function App() {
     AxiosService.get()
       .then((res) => {
         const data = res.data.results;
-        setQuestions(data);
+        setQuestions(
+          JSON.parse(
+            JSON.stringify(data)
+              .replaceAll(/&quot;/g, "''")
+              .replaceAll(/&amp;/g, `&`)
+              .replaceAll(/&#039;/g, "'")
+              .replaceAll(/&ouml;/g, "ö")
+          )
+        );
       })
       .catch((err) => {
         console.log(err);
@@ -52,16 +60,16 @@ export default function App() {
   }
 
   function handleSelection(id, index) {
-    console.log("selectedddd=>" + id, index);
+    console.log("id, index => " + id, index);
     setQuestions((oldQuestions) => {
       return oldQuestions.map((question) => {
         return question.id === id
           ? {
               ...question,
-              isSelected: !question.isSelected,
+              isSelected: question.selectedOption !== null ? question.isSelected : !question.isSelected,
               selectedOption: index,
             }
-          : { ...question };
+          : { ...question};
       });
     });
   }
